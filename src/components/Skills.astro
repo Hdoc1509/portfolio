@@ -4,44 +4,26 @@ import Icon from "./Icon.astro";
 
 <section class="box skills">
   <div class="stack gap-2 lg:gap-4">
-    <Icon
-      icon="terminal-window"
-      color="var(--accent-regular)"
-      size="2.5rem"
-      gradient
-    />
-    <h2>Full Stack</h2>
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.
-    </p>
+    <Icon icon="code" color="var(--accent-regular)" size="2.5rem" />
+    <h2>+3 years of experience</h2>
+    <p>Developing and maintaining websites and libraries.</p>
   </div>
   <div class="stack gap-2 lg:gap-4">
-    <Icon icon="trophy" color="var(--accent-regular)" size="2.5rem" gradient />
-    <h2>Industry Leader</h2>
-    <p>
-      Neque viverra justo nec ultrices dui. Est ultricies integer quis auctor
-      elit.
-    </p>
+    <Icon icon="puzzle-piece" color="var(--accent-regular)" size="2.5rem" />
+    <h2>Organized</h2>
+    <p>All elements have their own place and purpose.</p>
   </div>
   <div class="stack gap-2 lg:gap-4">
-    <Icon
-      icon="strategy"
-      color="var(--accent-regular)"
-      size="2.5rem"
-      gradient
-    />
-    <h2>Strategy-Minded</h2>
-    <p>Urna porttitor rhoncus dolor purus non enim praesent ornare.</p>
+    <!-- TODO: search a better icon -->
+    <Icon icon="stack-simple" color="var(--accent-regular)" size="2.5rem" />
+    <h2>Minimalist</h2>
+    <p>Keep things simple, focus on the essentials and reduce the noise.</p>
   </div>
 </section>
 
 <style>
   .box {
-    border: 1px solid var(--gray-800);
-    border-radius: 0.75rem;
     padding: 1.5rem;
-    background-color: var(--gray-999_40);
-    box-shadow: var(--shadow-sm);
   }
 
   .skills {
@@ -60,7 +42,6 @@ import Icon from "./Icon.astro";
 
   @media (min-width: 50em) {
     .box {
-      border-radius: 1.5rem;
       padding: 2.5rem;
     }
 
