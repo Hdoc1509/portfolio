@@ -1,7 +1,10 @@
 ---
 import { getCollection } from "astro:content";
+import ContactCTA from "../components/ContactCTA.astro";
 import Grid from "../components/Grid.astro";
 import Hero from "../components/Hero.astro";
+import Icon from "../components/Icon.astro";
+import Pill from "../components/Pill.astro";
 import PortfolioPreview from "../components/PortfolioPreview.astro";
 import Skills from "../components/Skills.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
@@ -11,38 +14,40 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 const projects = (await getCollection("work"))
   .sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf())
   .slice(0, 4);
-
-// TODO: use svg icons instead of Icon component
-// TODO: remove all background images and use less nosisy ones. try CSS
-// gradients
-// TODO: main color will be another tone of purple, background will be dark blue
 ---
 
 <BaseLayout>
-  <div class="stack gap-20 lg:gap-48">
+  <main class="stack gap-20 lg:gap-48">
     <div class="wrapper stack gap-8 lg:gap-20">
       <header class="hero">
         <Hero
-          title="Hello, my name is Héctor Ochoa"
-          tagline="I am a Web Front-end Developer who likes minimalism and customization."
+          title="I'm Héctor Ochoa"
+          tagline="A Web Front-end Developer who likes minimalist and detailed UI's."
           align="start"
-        />
+        >
+          <!-- TODO: transform into links to: LinkedIn, Github, and a button to -->
+          <!-- download my CV. Take links from Nav component -->
+          <div class="roles">
+            <Pill><Icon icon="linkedin-logo" size="1.33em" /></Pill>
+            <Pill><Icon icon="github-logo" size="1.33em" /></Pill>
+            <Pill><Icon icon="read-cv" size="1.33em" /> Download CV</Pill>
+          </div>
+        </Hero>
 
         <!-- TODO: add photo? -->
-        <!-- <img -->
-        <!--   alt="sample alt text" -->
-        <!--   width="480" -->
-        <!--   height="620" -->
-        <!--   src="/assets/portrait.jpg" -->
-        <!-- /> -->
+        <img
+          alt="sample alt text"
+          width="480"
+          height="620"
+          src="https://avatars.githubusercontent.com/u/72316111?v=4"
+        />
       </header>
 
-      <!-- NOTE: should I keep this? -->
       <Skills />
     </div>
 
-    <main class="wrapper stack gap-20 lg:gap-48">
-      <section class="section with-background with-cta">
+    <div class="wrapper stack gap-20 lg:gap-48">
+      <section class="section">
         <header class="section-header stack gap-2 lg:gap-4">
           <h3 id="projects">My projects</h3>
         </header>
@@ -59,15 +64,20 @@ const projects = (await getCollection("work"))
           </Grid>
         </div>
       </section>
-    </main>
+    </div>
 
     <!-- TODO: add tech stakc that I use and another sections with "other" tools I use -->
-  </div>
+    <ContactCTA />
+  </main>
 </BaseLayout>
 
 <!-- TODO: remove unused styles. if files is more than 100 LOC, move styles to
      another file -->
 <style>
+  main {
+    margin-top: 6rem;
+  }
+
   .hero {
     display: flex;
     flex-direction: column;
@@ -84,7 +94,6 @@ const projects = (await getCollection("work"))
     object-fit: cover;
     object-position: top;
     border-radius: 1.5rem;
-    box-shadow: var(--shadow-md);
   }
 
   @media (min-width: 50em) {
@@ -115,34 +124,6 @@ const projects = (await getCollection("work"))
     gap: 2rem;
   }
 
-  .with-background {
-    position: relative;
-  }
-
-  .with-background::before {
-    --hero-bg: var(--bg-image-subtle-2);
-
-    content: "";
-    position: absolute;
-    pointer-events: none;
-    left: 50%;
-    width: 100vw;
-    aspect-ratio: calc(2.25 / var(--bg-scale));
-    top: 0;
-    transform: translateY(-75%) translateX(-50%);
-    background:
-      url("/assets/backgrounds/noise.png") top center/220px repeat,
-      var(--hero-bg) center center / var(--bg-gradient-size) no-repeat,
-      var(--gray-999);
-    background-blend-mode: overlay, normal, normal, normal;
-    mix-blend-mode: var(--bg-blend-mode);
-    z-index: -1;
-  }
-
-  .with-background.bg-variant::before {
-    --hero-bg: var(--bg-image-subtle-1);
-  }
-
   .section-header {
     justify-self: center;
     text-align: center;
@@ -162,10 +143,6 @@ const projects = (await getCollection("work"))
       gap: 5rem;
     }
 
-    .section.with-cta {
-      grid-template-areas: "header header header cta" "gallery gallery gallery gallery";
-    }
-
     .section-header {
       grid-area: header;
       font-size: var(--text-lg);
@@ -175,17 +152,8 @@ const projects = (await getCollection("work"))
       font-size: var(--text-4xl);
     }
 
-    .with-cta .section-header {
-      justify-self: flex-start;
-      text-align: left;
-    }
-
     .gallery {
       grid-area: gallery;
-    }
-
-    .cta {
-      grid-area: cta;
     }
   }
 
