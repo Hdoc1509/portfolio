@@ -4,10 +4,10 @@ import ContactCTA from "../components/ContactCTA.astro";
 import Grid from "../components/Grid.astro";
 import Hero from "../components/Hero.astro";
 import Icon from "../components/Icon.astro";
-import Pill from "../components/Pill.astro";
 import PortfolioPreview from "../components/PortfolioPreview.astro";
 import Skills from "../components/Skills.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { iconLinks } from "../consts";
 
 // TODO: remove collections. just image, name, short description and icons for
 // used tech stack
@@ -17,26 +17,27 @@ const projects = (await getCollection("work"))
 ---
 
 <BaseLayout>
-  <main class="stack gap-20 lg:gap-48">
-    <div class="wrapper stack gap-8 lg:gap-20">
+  <div class="stack gap-20 lg:gap-48">
+    <main class="wrapper stack gap-8 lg:gap-20">
       <header class="hero">
         <Hero
           title="I'm Héctor Ochoa"
           tagline="A Web Front-end Developer who likes minimalist and detailed UI's."
           align="start"
         >
-          <!-- TODO: transform into links to: LinkedIn, Github, and a button to -->
-          <!-- download my CV. Take links from Nav component -->
-          <div class="roles">
-            <Pill><Icon icon="linkedin-logo" size="1.33em" /></Pill>
-            <Pill><Icon icon="github-logo" size="1.33em" /></Pill>
-            <Pill>
-              <Icon icon="file-arrow-down" size="1.33em" />Download CV
-            </Pill>
+          <div class="socials">
+            {
+              iconLinks.map(({ href, icon, label }) => (
+                <a href={href} class="social">
+                  <span class="sr-only">{label}</span>
+                  <Icon icon={icon} size="1em" />
+                </a>
+              ))
+            }
           </div>
         </Hero>
 
-        <!-- TODO: add photo? -->
+        <!-- TODO: add photo -->
         <img
           alt="sample alt text"
           width="480"
@@ -46,7 +47,7 @@ const projects = (await getCollection("work"))
       </header>
 
       <Skills />
-    </div>
+    </main>
 
     <div class="wrapper stack gap-20 lg:gap-48">
       <section class="section">
@@ -70,14 +71,14 @@ const projects = (await getCollection("work"))
 
     <!-- TODO: add tech stakc that I use and another sections with "other" tools I use -->
     <ContactCTA />
-  </main>
+  </div>
 </BaseLayout>
 
-<!-- TODO: remove unused styles. if files is more than 100 LOC, move styles to
-     another file -->
 <style>
   main {
-    margin-top: 6rem;
+    min-height: 100vh;
+    justify-content: center;
+    padding-top: 3rem;
   }
 
   .hero {
@@ -87,8 +88,26 @@ const projects = (await getCollection("work"))
     gap: 2rem;
   }
 
-  .roles {
-    display: none;
+  .socials {
+    margin-top: 0.5rem;
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+  }
+  .social {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.5rem;
+    gap: 0.5rem;
+    color: var(--accent-regular);
+    border: 2px solid var(--accent-overlay);
+    border-radius: 999rem;
+    font-size: var(--text-xl);
+    transition: color var(--theme-transition);
+  }
+  .social:hover {
+    color: var(--accent-dark);
   }
 
   .hero img {
@@ -106,10 +125,11 @@ const projects = (await getCollection("work"))
       gap: 3.75rem;
     }
 
-    .roles {
-      margin-top: 0.5rem;
-      display: flex;
-      gap: 0.5rem;
+    .socials {
+      justify-content: start;
+    }
+    .social {
+      font-size: var(--text-2xl);
     }
 
     .hero img {
@@ -156,28 +176,6 @@ const projects = (await getCollection("work"))
 
     .gallery {
       grid-area: gallery;
-    }
-  }
-
-  /* ====================================================== */
-
-  .mention-card {
-    display: flex;
-    height: 7rem;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    border: 1px solid var(--gray-800);
-    border-radius: 1.5rem;
-    color: var(--gray-300);
-    background: var(--gradient-subtle);
-    box-shadow: var(--shadow-sm);
-  }
-
-  @media (min-width: 50em) {
-    .mention-card {
-      border-radius: 1.5rem;
-      height: 9.5rem;
     }
   }
 </style>
