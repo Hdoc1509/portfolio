@@ -14,10 +14,10 @@ import Icon from "./Icon.astro";
 </footer>
 <style>
   footer {
-    display: flex;
-    flex-direction: column;
-    gap: 3rem;
-    margin-top: auto;
+    display: grid;
+    max-width: 83rem;
+    gap: 2rem;
+    margin-inline: auto;
     padding: 3rem 2rem 3rem;
     text-align: center;
     color: var(--gray-400);
@@ -45,13 +45,9 @@ import Icon from "./Icon.astro";
 
   @media (min-width: 50em) {
     footer {
-      flex-direction: row;
-      justify-content: space-between;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
       padding: 2.5rem 5rem;
-    }
-
-    .socials {
-      justify-content: flex-end;
     }
   }
 </style>
