@@ -1,10 +1,22 @@
 import type { iconPaths } from "./components/IconPaths";
 
-export const iconLinks: {
+export type ProjectEntry = {
+  description: string;
+  image: string;
+  imageAlt: string;
+  title: string;
+  url: string;
+  repoUrl: string;
+  tools: string[];
+};
+
+type IconLink = {
   label: string;
   href: string;
   icon: keyof typeof iconPaths;
-}[] = [
+};
+
+export const iconLinks: IconLink[] = [
   {
     label: "LinkedIn",
     href: "https://www.linkedin.com/in/hdocdev",
@@ -15,5 +27,17 @@ export const iconLinks: {
     label: "Send email",
     href: "mailto:hector.ochoa.dev@gmail.com",
     icon: "envelop-simple",
+  },
+];
+
+export const projects: ProjectEntry[] = [
+  {
+    title: "Guess the Word Game",
+    image: "https://i.imgur.com/gJtlL09.png",
+    imageAlt: "Guess the Word Game",
+    description: `A simple game (or not?) where the user has to guess the scrambled word. There are +7400 words to be discovered in different levels.`,
+    url: "https://hdoc1509.github.io/dev-challenges/guess-the-word",
+    repoUrl: `https://github.com/Hdoc1509/dev-challenges/tree/master/vanilla/guess-the-word`,
+    tools: ["JavaScript", "CSS", "HTML"],
   },
 ];
