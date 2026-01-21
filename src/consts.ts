@@ -30,7 +30,17 @@ export const iconLinks: IconLink[] = [
   },
 ];
 
+// TODO: add `Five Hands Poker`
 export const projects: ProjectEntry[] = [
+  {
+    title: "hrc",
+    image: "https://hdoc1509.github.io/hrc/og.png?v=1.2", // follow querystring from hrc repo
+    imageAlt: "Build your React app with hrc",
+    description: `Simple and extensible components with minimalistic design for your React app.`,
+    url: "https://hdoc1509.github.io/hrc",
+    repoUrl: `https://github.com/Hdoc1509/hrc`,
+    tools: ["React", "TypeScript", "SASS"],
+  },
   {
     title: "Guess the Word Game",
     image: "https://i.imgur.com/gJtlL09.png",
