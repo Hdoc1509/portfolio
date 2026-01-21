@@ -40,12 +40,14 @@ const { title, url, image, imageAlt, description, tools, repoUrl } =
     overflow: hidden;
     font-family: var(--font-brand);
   }
+  .card > *:not(img) {
+    padding-inline: 1rem;
+  }
 
   .title {
     display: flex;
     justify-content: space-between;
     gap: 2rem;
-    padding-inline: 1rem;
     font-weight: 500;
     font-size: var(--text-xl);
   }
@@ -67,7 +69,6 @@ const { title, url, image, imageAlt, description, tools, repoUrl } =
   }
 
   .description {
-    padding-inline: 1rem;
     color: var(--gray-200);
     font-size: var(--text-md);
   }
@@ -75,7 +76,6 @@ const { title, url, image, imageAlt, description, tools, repoUrl } =
   .tools {
     display: flex;
     gap: 1rem;
-    padding-inline: 1rem;
     color: var(--gray-300);
     font-size: var(--text-sm);
   }
