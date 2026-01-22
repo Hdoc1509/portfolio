@@ -34,15 +34,6 @@ export const iconLinks: IconLink[] = [
 
 export const projects: ProjectEntry[] = [
   {
-    title: "hrc",
-    image: "https://hdoc1509.github.io/hrc/og.png?v=1.2", // follow querystring from hrc repo
-    imageAlt: "Build your React app with hrc",
-    description: `Simple and extensible components with minimalistic design for your React app.`,
-    url: "https://hdoc1509.github.io/hrc",
-    repoUrl: `https://github.com/Hdoc1509/hrc`,
-    tools: ["React", "TypeScript", "SASS"],
-  },
-  {
     title: "Guess the Word Game",
     image: "https://i.imgur.com/gJtlL09.png",
     imageAlt: "Guess the Word Game",
@@ -50,6 +41,15 @@ export const projects: ProjectEntry[] = [
     url: "https://hdoc1509.github.io/dev-challenges/guess-the-word",
     repoUrl: `https://github.com/Hdoc1509/dev-challenges/tree/master/vanilla/guess-the-word`,
     tools: ["JavaScript", "CSS", "HTML"],
+  },
+  {
+    title: "hrc",
+    image: "https://hdoc1509.github.io/hrc/og.png?v=1.2", // follow querystring from hrc repo
+    imageAlt: "Build your React app with hrc",
+    description: `Simple and extensible components with minimalistic design for your React app.`,
+    url: "https://hdoc1509.github.io/hrc",
+    repoUrl: `https://github.com/Hdoc1509/hrc`,
+    tools: ["React", "TypeScript", "SASS"],
   },
   {
     title: "Five Hands Poker",
