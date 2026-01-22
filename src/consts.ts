@@ -1,5 +1,7 @@
 import type { iconPaths } from "./components/IconPaths";
 
+const { BASE_URL } = import.meta.env;
+
 export type ProjectEntry = {
   description: string;
   image: string;
@@ -30,7 +32,6 @@ export const iconLinks: IconLink[] = [
   },
 ];
 
-// TODO: add `Five Hands Poker`
 export const projects: ProjectEntry[] = [
   {
     title: "hrc",
@@ -49,5 +50,14 @@ export const projects: ProjectEntry[] = [
     url: "https://hdoc1509.github.io/dev-challenges/guess-the-word",
     repoUrl: `https://github.com/Hdoc1509/dev-challenges/tree/master/vanilla/guess-the-word`,
     tools: ["JavaScript", "CSS", "HTML"],
+  },
+  {
+    title: "Five Hands Poker",
+    image: `${BASE_URL}/five-hands-poker-og.png?v=1`,
+    imageAlt: "Five Hands Poker by Hdoc",
+    description: `Try to win by getting at least 60 points by playing five hands of poker.`,
+    url: "https://hdoc1509.github.io/five-hands-poker",
+    repoUrl: `https://github.com/Hdoc1509/five-hands-poker`,
+    tools: ["TypeScript", "SASS", "CSS", "HTML"],
   },
 ];
