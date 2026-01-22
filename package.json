@@ -7,7 +7,7 @@
     "build": "astro check && astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "lint": "eslint . --ext ts,astro --report-unused-disable-directives --max-warnings 0"
+    "lint": "eslint src --ext ts,astro --report-unused-disable-directives --max-warnings 0"
   },
   "dependencies": {
     "@fontsource-variable/public-sans": "5.2.7",
