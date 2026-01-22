@@ -1,5 +1,5 @@
 import eslint from "@eslint/js";
-import { defineConfig } from "eslint";
+import { defineConfig } from "eslint/config";
 import tseslint from "typescript-eslint";
 import eslintPluginAstro from "eslint-plugin-astro";
 
