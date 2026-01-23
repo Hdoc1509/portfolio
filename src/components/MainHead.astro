@@ -25,28 +25,3 @@ const {
 <title>{title}</title>
 
 <link rel="icon" type="image/svg+xml" href="/portfolio/favicon.svg" />
-<script is:inline>
-  const themeKey = "hdoc:portfolio:theme";
-  const getThemePreference = () => {
-    if (typeof localStorage !== "undefined" && localStorage.getItem(themeKey))
-      return localStorage.getItem(themeKey);
-
-    return window.matchMedia("(prefers-color-scheme: dark)").matches
-      ? "dark"
-      : "light";
-  };
-  const isDark = getThemePreference() === "dark";
-  document.documentElement.classList[isDark ? "add" : "remove"]("theme-dark");
-
-  if (typeof localStorage !== "undefined") {
-    // Watch the document element and persist user preference when it changes.
-    const observer = new MutationObserver(() => {
-      const isDark = document.documentElement.classList.contains("theme-dark");
-      localStorage.setItem(themeKey, isDark ? "dark" : "light");
-    });
-    observer.observe(document.documentElement, {
-      attributes: true,
-      attributeFilter: ["class"],
-    });
-  }
-</script>
