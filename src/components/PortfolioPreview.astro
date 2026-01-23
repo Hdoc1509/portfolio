@@ -13,15 +13,17 @@ const { title, url, image, imageAlt, description, tools, repoUrl } =
 
 <div class="card">
   <img src={image} alt={imageAlt} loading="lazy" decoding="async" />
-  <h4 class="title">
-    <a href={url} target="_blank">
-      {title}
-      <Icon icon="arrow-square-out" size="1.2em" />
-    </a>
+  <header>
+    <h4>
+      <a href={url} target="_blank">
+        {title}
+        <Icon icon="arrow-square-out" size="1.2em" />
+      </a>
+    </h4>
     <a href={repoUrl} target="_blank">
       <Icon icon="github-logo" size="1.2em" />
     </a>
-  </h4>
+  </header>
   <p class="description">{description}</p>
   <div class="tools" aria-label="Used tools">
     {tools.map((tool) => <Pill>{tool}</Pill>)}
@@ -44,19 +46,19 @@ const { title, url, image, imageAlt, description, tools, repoUrl } =
     padding-inline: 1rem;
   }
 
-  .title {
-    display: flex;
-    justify-content: space-between;
-    gap: 2rem;
+  h4 {
+    display: inline;
+  }
+  header > * {
     font-weight: 500;
     font-size: var(--text-xl);
   }
-  .title a {
+  header a {
     text-decoration: none;
     color: currentcolor;
   }
-  .title a:hover,
-  .title a:focus {
+  header a:hover,
+  header a:focus {
     color: var(--accent-dark);
     text-decoration: underline;
   }
