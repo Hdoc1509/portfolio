@@ -14,20 +14,25 @@ const { title, url, image, imageAlt, description, tools, repoUrl } =
 <div class="card">
   <img src={image} alt={imageAlt} loading="lazy" decoding="async" />
   <header>
-    <h4>
-      <a href={url} target="_blank" rel="noopener noreferrer">
-        {title}
+    <h4>{title}</h4>
+    <nav>
+      <a
+        aria-label="Go to live website"
+        href={url}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
         <Icon icon="arrow-square-out" size="1.2em" />
       </a>
-    </h4>
-    <a
-      aria-label="GitHub repository"
-      href={repoUrl}
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      <Icon icon="github-logo" size="1.2em" />
-    </a>
+      <a
+        aria-label="GitHub repository"
+        href={repoUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <Icon icon="github-logo" size="1.2em" />
+      </a>
+    </nav>
   </header>
   <p class="description">{description}</p>
   <ul class="tools" aria-label="Used tools">
@@ -57,8 +62,12 @@ const { title, url, image, imageAlt, description, tools, repoUrl } =
     padding-inline: 1rem;
   }
 
-  h4 {
-    display: inline;
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.5rem;
   }
   header > * {
     font-weight: 500;
@@ -71,7 +80,6 @@ const { title, url, image, imageAlt, description, tools, repoUrl } =
   header a:hover,
   header a:focus {
     color: var(--accent-dark);
-    text-decoration: underline;
   }
 
   img {
