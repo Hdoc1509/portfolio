@@ -15,19 +15,30 @@ const { title, url, image, imageAlt, description, tools, repoUrl } =
   <img src={image} alt={imageAlt} loading="lazy" decoding="async" />
   <header>
     <h4>
-      <a href={url} target="_blank">
+      <a href={url} target="_blank" rel="noopener noreferrer">
         {title}
         <Icon icon="arrow-square-out" size="1.2em" />
       </a>
     </h4>
-    <a href={repoUrl} target="_blank">
+    <a
+      aria-label="GitHub repository"
+      href={repoUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+    >
       <Icon icon="github-logo" size="1.2em" />
     </a>
   </header>
   <p class="description">{description}</p>
-  <div class="tools" aria-label="Used tools">
-    {tools.map((tool) => <Pill>{tool}</Pill>)}
-  </div>
+  <ul class="tools" aria-label="Used tools">
+    {
+      tools.map((tool) => (
+        <li>
+          <Pill>{tool}</Pill>
+        </li>
+      ))
+    }
+  </ul>
 </div>
 
 <style>
@@ -80,6 +91,7 @@ const { title, url, image, imageAlt, description, tools, repoUrl } =
     gap: 1rem;
     color: var(--gray-300);
     font-size: var(--text-sm);
+    list-style: none;
   }
 
   @media (min-width: 50em) {
