@@ -22,8 +22,8 @@ jobs:
         with:
           files: |
             .github/workflows/deploy.yml
-            src/
-            public/
+            src/**
+            public/**
             astro.config.mjs
             package.json
             .nvmrc
