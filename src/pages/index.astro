@@ -30,13 +30,7 @@ import { iconLinks, projects } from "../consts";
           </div>
         </Hero>
 
-        <!-- TODO: add photo -->
-        <img
-          alt="sample alt text"
-          width="480"
-          height="620"
-          src="https://avatars.githubusercontent.com/u/72316111?v=4"
-        />
+        <img alt="Héctor Ochoa's personal logo" src="/portfolio/logo.svg" />
       </header>
 
       <Skills />
@@ -71,6 +65,7 @@ import { iconLinks, projects } from "../consts";
   main {
     min-height: 100vh;
     align-items: center;
+    justify-content: center;
     padding-top: 3rem;
   }
 
@@ -105,10 +100,10 @@ import { iconLinks, projects } from "../consts";
   }
 
   .hero img {
-    aspect-ratio: 5 / 4;
+    aspect-ratio: 1;
     object-fit: cover;
     object-position: top;
-    border-radius: 1.5rem;
+    width: 75%;
   }
 
   @media (min-width: 50em) {
@@ -127,9 +122,8 @@ import { iconLinks, projects } from "../consts";
     }
 
     .hero img {
-      aspect-ratio: 3 / 4;
-      border-radius: 4.5rem;
       object-fit: cover;
+      width: 100%;
     }
   }
 
